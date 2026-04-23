@@ -38,7 +38,7 @@ cd SW-Unit-Testing
 
 ### 3. Jalankan Test Kelas Tertentu
 
-Ganti `NamaKelasTest` dengan nama file test yang ingin dijalankan, misalnya `GradeModuleTest`:
+Ganti `NamaModulTest` dengan nama file test yang ingin dijalankan, misalnya `GradeModuleTest`:
 
 **Windows:**
 ```bash
@@ -52,11 +52,12 @@ Ganti `NamaKelasTest` dengan nama file test yang ingin dijalankan, misalnya `Gra
 
 Kelas test yang tersedia:
 - `InputModuleTest`
+- `ValidationModuleTest`
 - `FinalScoreModuleTest`
 - `GradeModuleTest`
 - `GradeProcessingModuleTest`
 - `GraduationModuleTest`
-- `MainTest`
+- `GradeApplicationTest`
 
 ### 4. Lihat Laporan Hasil Test
 

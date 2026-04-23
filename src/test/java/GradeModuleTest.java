@@ -1,8 +1,7 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test Script: GradeModule
@@ -15,75 +14,76 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("TC-GR: GradeModule Tests")
 public class GradeModuleTest {
 
-    private Main.GradeModule gradeModule;
+    private GradeModule gradeModule;
 
     @BeforeEach
     void setUp() {
-        gradeModule = new Main.GradeModule();
+        gradeModule = new GradeModule();
     }
 
-    /**
-     * TC-GR01 | Path GR1
-     * Nilai batas bawah Grade A: finalScore = 85 → expected "A"
-     */
     @Test
-    @DisplayName("TC-GR01 | GR1 | Grade A - Batas Bawah (finalScore = 85)")
-    void testGradeA_lowerBound() {
+    @DisplayName("TC-GR01 | GR1 | Klasifikasi Grade A pada Batas Bawah")
+    void shouldReturnGradeAAtLowerBoundary() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("A", gradeModule.determineGrade(85));
+
+        // (3) verify (assert, check)
     }
 
-    /**
-     * TC-GR02 | Path GR2
-     * Nilai batas bawah Grade B: finalScore = 70 → expected "B"
-     */
     @Test
-    @DisplayName("TC-GR02 | GR2 | Grade B - Batas Bawah (finalScore = 70)")
-    void testGradeB_lowerBound() {
+    @DisplayName("TC-GR02 | GR2 | Klasifikasi Grade B pada Batas Bawah")
+    void shouldReturnGradeBAtLowerBoundary() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("B", gradeModule.determineGrade(70));
+
+        // (3) verify (assert, check)
     }
 
-    /**
-     * TC-GR03 | Path GR2
-     * Nilai batas atas Grade B: finalScore = 84.99 → expected "B"
-     */
     @Test
-    @DisplayName("TC-GR03 | GR2 | Grade B - Batas Atas (finalScore = 84.99)")
-    void testGradeB_upperBound() {
+    @DisplayName("TC-GR03 | GR2 | Klasifikasi Grade B pada Batas Atas")
+    void shouldReturnGradeBAtUpperBoundary() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("B", gradeModule.determineGrade(84.99));
+
+        // (3) verify (assert, check)
     }
 
-    /**
-     * TC-GR04 | Path GR3
-     * Nilai tengah Grade C: finalScore = 65 → expected "C"
-     */
     @Test
-    @DisplayName("TC-GR04 | GR3 | Grade C - Nilai Tengah (finalScore = 65)")
-    void testGradeC_midValue() {
+    @DisplayName("TC-GR04 | GR3 | Klasifikasi Grade C pada Nilai Tengah")
+    void shouldReturnGradeCForMidScore() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("C", gradeModule.determineGrade(65));
+
+        // (3) verify (assert, check)
     }
 
-    /**
-     * TC-GR05 | Path GR4
-     * Nilai batas bawah Grade D: finalScore = 50 → expected "D"
-     *
-     * Catatan Simulasi: Pada kondisi terdapat bug operator logika (misal '>='
-     * diganti '>'), nilai 50 akan salah dipetakan ke "E". Dalam kode saat ini
-     * implementasi sudah benar, sehingga test PASS. Jika ditemukan failure,
-     * catat sebagai INC-001.
-     */
     @Test
-    @DisplayName("TC-GR05 | GR4 | Grade D - Batas Bawah (finalScore = 50)")
-    void testGradeD_lowerBound() {
+    @DisplayName("TC-GR05 | GR4 | Klasifikasi Grade D pada Batas Bawah")
+    void shouldReturnGradeDAtLowerBoundary() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("D", gradeModule.determineGrade(50));
+
+        // (3) verify (assert, check)
     }
 
-    /**
-     * TC-GR06 | Path GR5
-     * Nilai rendah Grade E: finalScore = 30 → expected "E"
-     */
     @Test
-    @DisplayName("TC-GR06 | GR5 | Grade E - Nilai Rendah (finalScore = 30)")
-    void testGradeE_lowValue() {
+    @DisplayName("TC-GR06 | GR5 | Klasifikasi Grade E pada Nilai Rendah")
+    void shouldReturnGradeEForLowScore() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("E", gradeModule.determineGrade(30));
+
+        // (3) verify (assert, check)
     }
 }

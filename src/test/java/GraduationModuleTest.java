@@ -1,8 +1,7 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test Script: GraduationModule
@@ -14,30 +13,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("TC-GD: GraduationModule Tests")
 public class GraduationModuleTest {
 
-    private Main.GraduationModule graduationModule;
+    private GraduationModule graduationModule;
 
     @BeforeEach
     void setUp() {
-        graduationModule = new Main.GraduationModule();
+        graduationModule = new GraduationModule();
     }
 
-    /**
-     * TC-GD01 | Path GD1
-     * Nilai batas bawah kelulusan: finalScore = 60 → expected "Lulus"
-     */
     @Test
-    @DisplayName("TC-GD01 | GD1 | Kelulusan Lulus - Batas Bawah (finalScore = 60)")
-    void testStatusLulus_boundary() {
+    @DisplayName("TC-GD01 | GD1 | Status Lulus pada Batas Kelulusan")
+    void shouldReturnLulusAtPassingScore() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("Lulus", graduationModule.determineStatus(60));
+
+        // (3) verify (assert, check)
     }
 
-    /**
-     * TC-GD02 | Path GD2
-     * Nilai tepat di bawah batas kelulusan: finalScore = 59.99 → expected "Tidak Lulus"
-     */
     @Test
-    @DisplayName("TC-GD02 | GD2 | Kelulusan Tidak Lulus - Batas Atas Gagal (finalScore = 59.99)")
-    void testStatusTidakLulus_boundary() {
+    @DisplayName("TC-GD02 | GD2 | Status Tidak Lulus di Bawah Batas Kelulusan")
+    void shouldReturnTidakLulusBelowPassingScore() {
+        // (1) setup (arrange, build)
+
+        // (2) exercise (act, operate)
         assertEquals("Tidak Lulus", graduationModule.determineStatus(59.99));
+
+        // (3) verify (assert, check)
     }
 }
