@@ -4,6 +4,8 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,27 +19,37 @@ import org.junit.jupiter.api.Test;
 @DisplayName("TC-GP: GradeProcessingModule Tests")
 public class GradeProcessingModuleTest {
 
+    private PrintStream originalOut;
+    private ByteArrayOutputStream capturedOut;
+    private GradeProcessingModule processingModule;
+
+    @BeforeEach
+    void setUp() {
+        String simulatedInput = "80\n80\n80\n";
+        Scanner scanner = new Scanner(new ByteArrayInputStream(simulatedInput.getBytes()));
+
+        originalOut = System.out;
+        capturedOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(capturedOut));
+
+        processingModule = new GradeProcessingModule(scanner);
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.setOut(originalOut);
+    }
+
     @Test
     @DisplayName("TC-GP01 | GP1 | Alur End-to-End untuk Nilai Valid")
     void shouldProcessValidScoresEndToEnd() {
         // (1) setup (arrange, build)
-        String simulatedInput = "80\n80\n80\n";
-        Scanner scanner = new Scanner(new ByteArrayInputStream(simulatedInput.getBytes()));
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(outputStream));
-
-        try {
-            // (2) exercise (act, operate)
-            GradeProcessingModule processingModule = new GradeProcessingModule(scanner);
-            processingModule.process();
-        } finally {
-            System.setOut(originalOut);
-        }
+        // (2) exercise (act, operate)
+        processingModule.process();
 
         // (3) verify (assert, check)
-        String output = outputStream.toString();
+        String output = capturedOut.toString();
         assertTrue(output.contains("80"),    "Output harus mengandung nilai akhir 80");
         assertTrue(output.contains("B"),     "Output harus mengandung Grade B");
         assertTrue(output.contains("Lulus"), "Output harus mengandung status Lulus");

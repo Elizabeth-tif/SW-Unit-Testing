@@ -63,7 +63,7 @@ public class InputModuleTest {
     }
 
     @Test
-    @DisplayName("TC-IN03 | IN2 | Tolak Input Semua Nol lalu Terima Input Ulang")
+    @DisplayName("TC-IN03 | IN3 | Tolak Input Semua Nol lalu Terima Input Ulang")
     void shouldRetryWhenAllInputsAreZero() {
         // (1) setup (arrange, build)
         String simulatedInput = "0\n0\n0\n80\n80\n80\n";

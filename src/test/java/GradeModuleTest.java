@@ -27,9 +27,10 @@ public class GradeModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("A", gradeModule.determineGrade(85));
+        String result = gradeModule.determineGrade(85);
 
         // (3) verify (assert, check)
+        assertEquals("A", result);
     }
 
     @Test
@@ -38,9 +39,10 @@ public class GradeModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("B", gradeModule.determineGrade(70));
+        String result = gradeModule.determineGrade(70);
 
         // (3) verify (assert, check)
+        assertEquals("B", result);
     }
 
     @Test
@@ -49,9 +51,10 @@ public class GradeModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("B", gradeModule.determineGrade(84.99));
+        String result = gradeModule.determineGrade(84.99);
 
         // (3) verify (assert, check)
+        assertEquals("B", result);
     }
 
     @Test
@@ -60,9 +63,10 @@ public class GradeModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("C", gradeModule.determineGrade(65));
+        String result = gradeModule.determineGrade(65);
 
         // (3) verify (assert, check)
+        assertEquals("C", result);
     }
 
     @Test
@@ -71,9 +75,10 @@ public class GradeModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("D", gradeModule.determineGrade(50));
+        String result = gradeModule.determineGrade(50);
 
         // (3) verify (assert, check)
+        assertEquals("D", result);
     }
 
     @Test
@@ -82,8 +87,9 @@ public class GradeModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("E", gradeModule.determineGrade(30));
+        String result = gradeModule.determineGrade(30);
 
         // (3) verify (assert, check)
+        assertEquals("E", result);
     }
 }

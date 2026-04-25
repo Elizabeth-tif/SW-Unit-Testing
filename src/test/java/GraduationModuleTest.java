@@ -26,9 +26,10 @@ public class GraduationModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("Lulus", graduationModule.determineStatus(60));
+        String result = graduationModule.determineStatus(60);
 
         // (3) verify (assert, check)
+        assertEquals("Lulus", result);
     }
 
     @Test
@@ -37,8 +38,9 @@ public class GraduationModuleTest {
         // (1) setup (arrange, build)
 
         // (2) exercise (act, operate)
-        assertEquals("Tidak Lulus", graduationModule.determineStatus(59.99));
+        String result = graduationModule.determineStatus(59.99);
 
         // (3) verify (assert, check)
+        assertEquals("Tidak Lulus", result);
     }
 }
